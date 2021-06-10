@@ -28,48 +28,31 @@
           <a class="nav-item nav-link" href="https://twitter.com/Retr_0_">Twitter</a>
           <a class="nav-item nav-link" href="https://github.com/Hooyarsh">Github</a>
           <a class="nav-item nav-link" href="{% static 'resume.pdf' %}">Resume</a>
-          <a class="nav-item nav-link" href="{% url 'allblogs' %}">Blog</a>
+          <a class="nav-item nav-link active" href="{% url 'allblogs' %}">Blog</a>
         </div>
       </div>
     </nav>
   </header>
 
   <main role="main">
+  	<div class="container">
 
-    <section class="jumbotron text-center">
-      <div class="container">
-        <h1 class="jumbotron-heading">Hi, I'm Hooyar.</h1>
-        <p class="lead text-muted">Hey I'm Hooyar Shahidi. I'm a student at <a href="https://www.helli3.com" target="_blank">Helli 3 High School </a>.
-        I started programming with python and had project in machine learning and openCV.
-        I'm also fluent in penetration testing</p>
-        <p>
-          <a href="mailto:hooyarsh@gmail.com" class="btn btn-primary my-2">Contact Me</a>
-        </p>
-        <img src="{% static 'Hooyar.jpg' %}" height="300" />
-      </div>
-    </section>
+  	<h1 class="text-center pt-5">Welcome to Hooyar's Blog</h1>
+  	<br />
+  	<br />
+  	<h2>Latest Post</h2>
+  	<hr />
 
-    <div class="album py-5 bg-light">
-      <div class="container">
+  	{% for blog in blogs.all %}
+  	<a href=""><h3>{{ blog.title }}</h3></a>
+  	{{ blog.pub_date }}
+  	<br />
+  	<img class="img-fluid" src="{{ blog.image.url }}" hieth=200 width=200 />
+  	<br />
+  	<p>{{ blog.body }}</p>
+  	{% endfor %}
 
-        <div class="row">
-
-          {% for job in jobs.all %}
-          <div class="col-md-4">
-            <div class="card mb-4 box-shadow">
-              <img class="card-img-top" src="{{ job.image.url }}" />
-              <div class="card-body">
-                <p class="card-text">{{ job.summary }}</p>
-              </div>
-            </div>
-          </div>
-          {% endfor %}
-
-
-        </div>
-      </div>
-    </div>
-
+  </div>
   </main>
 
   <footer class="text-muted">
