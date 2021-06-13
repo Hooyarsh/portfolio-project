@@ -8,7 +8,7 @@
   <meta name="author" content="">
 
 
-  <title>Hooyar Shahidi</title>
+  <title>Hooyar's Blog</title>
 
   <!-- Bootstrap core CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -44,7 +44,7 @@
   	<hr />
 
   	{% for blog in blogs.all %}
-  	<a href=""><h3>{{ blog.title }}</h3></a>
+  	<a href="{% url 'detail' blog.id %}"><h3>{{ blog.title }}</h3></a>
   	{{ blog.pub_date_pretty }}
   	<br />
   	<img class="img-fluid" src="{{ blog.image.url }}" hieth=200 width=200 />
